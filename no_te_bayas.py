@@ -7,22 +7,18 @@ import pruebas as pr
     
 def main():
 
-    tablas = func.leer_tablas("tablas.json")
+    tablas = func.leer_json("tablas.json")
 
-    nodos = []
+    nodos: list[clases.Nodo] = []
 
     for tabla in tablas:
         nodos.append(clases.Nodo(tabla))
     for nodo in nodos:
         print(nodo.nombre())
 
-    matriz_ad = [
-        [0, 1, 1, 0],
-        [0, 0, 1, 0],
-        [0, 0, 0, 1],
-        [0, 0, 0, 0]
-    ]
+    matriz_ad = func.leer_json("matriz.json")
 
+    print(matriz_ad)
     graph = clases.Grafo(matriz_ad, nodos)
     lista_indices = graph.buscar_papas("train")
     print(lista_indices)

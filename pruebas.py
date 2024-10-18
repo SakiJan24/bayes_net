@@ -1,4 +1,5 @@
 import json
+import funciones
 
 def imprimir_tablas(tablas):
     for tabla in tablas:
@@ -14,7 +15,6 @@ def imprimir_tablas(tablas):
                 print(combinacion["probabilidad"])
 
 if __name__ == "__main__" :
-    with open("tablas.json", "r") as file:
-        tablas = json.load(file)
-    imprimir_tablas(tablas)
-    
+   matriz = funciones.leer_matriz_ad("matriz.csv")
+   for linea in matriz:
+       print (linea)
