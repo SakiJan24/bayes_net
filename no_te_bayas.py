@@ -25,8 +25,35 @@ class Grafo:
                         lista_indices.append(j)
     
         return lista_indices
-                
     
+    def limpiar_cadena(self, cadena):
+        print(cadena)
+        #quitar el p( y el parentesis
+        sub_cadena1 = 'P('
+        sub_cadena2 = ')'
+        sin_p_parentesis = cadena.replace(sub_cadena1, "")
+        sin_p_parentesis_p = sin_p_parentesis.replace(sub_cadena2, "")
+        el_split = sin_p_parentesis_p.split('^')
+
+        return el_split
+    def variables_principales(self, procesada):
+        print("mahalo")
+        if(len(procesada) > len(self.nodos)):
+            print("se van a procesar mas cosas de los nodos que se tienen")
+        # busco a que pertence cada cosa
+        for i in range(len(procesada)):
+            for j in range(len(self.nodos)):
+                print("siu")
+    
+    def principal(self, cadena):
+        #Leer cadena
+        procesada = self.limpiar_cadena(cadena)
+        #Definir variables principales
+
+        #Calculo la probabilidad de cada una
+
+        #busco los papas conforme a la variables principales
+        print("esta es la funcion principal")
 
 
 def main():
@@ -101,6 +128,8 @@ def main():
     lista_indices = graph.buscar_papas("train")
     print(lista_indices)
     
+
+    print(graph.limpiar_cadena('P(light^delayed^miss)'))
 
 
 main()
