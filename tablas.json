@@ -1,0 +1,234 @@
+[
+    {
+        "nombre" : "rain",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "none",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.7
+                        }
+                    ]
+                },
+                {
+                    "estado" : "light",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.2
+                        }
+                    ]
+                },
+                {
+                    "estado" : "heavy",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.1
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    },
+    {
+        "nombre" : "maintenance",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "yes",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "none"
+                            ],
+                            "probabilidad" : 0.4
+                        },
+                        {
+                            "heredados" : [
+                                "light"
+                            ],
+                            "probabilidad" : 0.2
+                        },
+                        {
+                            "heredados" : [
+                                "heavy"
+                            ],
+                            "probabilidad" : 0.1
+                        }
+                    ]
+                },
+                {
+                    "estado" : "no",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "none"
+                            ],
+                            "probabilidad" : 0.6
+                        },
+                        {
+                            "heredados" : [
+                                "light"
+                            ],
+                            "probabilidad" : 0.8
+                        },
+                        {
+                            "heredados" : [
+                                "heavy"
+                            ],
+                            "probabilidad" : 0.9
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    },
+    {
+        "nombre" : "train",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "on_time",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "none", 
+                                "yes"
+                            ],
+                            "probabilidad" : 0.8
+                        },
+                        {
+                            "heredados" : [
+                                "none", 
+                                "no"
+                            ],
+                            "probabilidad" : 0.9
+                        },
+                        {
+                            "heredados" : [
+                                "light",
+                                "yes"
+                            ],
+                            "probabilidad" : 0.6
+                        },
+                        {
+                            "heredados" : [
+                                "light", 
+                                "no"
+                            ],
+                            "probabilidad" : 0.7
+                        },
+                        {
+                            "heredados" : [
+                                "heavy", 
+                                "yes"
+                            ],
+                            "probabilidad" : 0.4
+                        },
+                        {
+                            "heredados" : [
+                                "heavy",
+                                "no"
+                            ],
+                            "probabilidad" : 0.5
+                        }
+                    ]
+                },
+                {
+                    "estado" : "delayed",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "none", 
+                                "yes"
+                            ],
+                            "probabilidad" : 0.2
+                        },
+                        {
+                            "heredados" : [
+                                "none", 
+                                "no"
+                            ],
+                            "probabilidad" : 0.1
+                        },
+                        {
+                            "heredados" : [
+                                "light",
+                                "yes"
+                            ],
+                            "probabilidad" : 0.4
+                        },
+                        {
+                            "heredados" : [
+                                "light", 
+                                "no"
+                            ],
+                            "probabilidad" : 0.3
+                        },
+                        {
+                            "heredados" : [
+                                "heavy", 
+                                "yes"
+                            ],
+                            "probabilidad" : 0.6
+                        },
+                        {
+                            "heredados" : [
+                                "heavy",
+                                "no"
+                            ],
+                            "probabilidad" : 0.5
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    },
+    {
+        "nombre" : "apoinment",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "attend",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "on_time"
+                            ],
+                            "probabilidad" : 0.9
+                        },
+                        {
+                            "heredados" : [
+                                "delayed"
+                            ],
+                            "probabilidad" : 0.6
+                        }
+                    ]
+                },
+                {
+                    "estado" : "miss",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "on_time"
+                            ],
+                            "probabilidad" : 0.1
+                        },
+                        {
+                            "heredados" : [
+                                "delayed"
+                            ],
+                            "probabilidad" : 0.4
+                        }
+                    ]
+                }                
+            ]
+        }
+    }
+]
