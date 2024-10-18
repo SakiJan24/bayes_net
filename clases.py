@@ -4,8 +4,30 @@ class Nodo:
 
     def nombre(self):
         return self.dic["nombre"]
-
     
+    def estados_propios(self):
+        est_propios = []
+        for estado in self.dic["contenido"]["estados"]:
+            est_propios.append(estado["estado"])
+        return est_propios
+    
+    def estados_heredados(self):
+        est_heredados = set()
+        for estado in self.dic["contenido"]["estados"]:
+            for combinacion in estado["combinaciones"]:
+                for heredado in combinacion["heredados"]:
+                    est_heredados.add(heredado)
+        return list(est_heredados)
+    
+    def proba_combinacion(self, est:str, ests_heredado:list):
+        for estado in self.dic["contenido"]["estados"]:
+            if(est == estado["estado"]):
+                for combinacion in estado["combinaciones"]:
+                    if set(combinacion["heredados"]) == set(ests_heredado):
+                        return combinacion["probabilidad"]
+        return -1
+
+
     
 
 class Grafo:
