@@ -15,6 +15,7 @@ def main():
         nodos.append(clases.Nodo(tabla))
     for nodo in nodos:
         print(nodo.nombre())
+        print(nodo.tabla)
 
     matriz_ad = func.leer_json("matriz.json")
 

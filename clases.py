@@ -3,6 +3,7 @@ class Nodo:
         self.dic = dic
         self.name = self.nombre()
         self.values = self.estados_propios()
+        self.tabla = self.combinaciones()
 
     def nombre(self):
         return self.dic["nombre"]
@@ -30,15 +31,19 @@ class Nodo:
         return -1
     
     def combinaciones(self):
-        
-        
-
-    def to_tabla(self):
         tabla = {}
+        for estado in self.dic["contenido"]["estados"]:
+            est = [estado["estado"]]
+            for combinacion in estado["combinaciones"]:
+                for heredado in combinacion["heredados"]:
+                    est.append(heredado)
+                
+                linea = tuple(est), combinacion["probabilidad"]
+                tabla[linea[0]] = linea[1]
+        return tabla
 
-        est_propios = self.estados_propios()
-        est_heredados = self.estados_heredados()
 
+            
 
 class Grafo:
     def __init__(self, matriz_ad, nodos):
