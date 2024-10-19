@@ -1,6 +1,8 @@
 class Nodo: 
     def __init__(self, dic):
         self.dic = dic
+        self.name = self.nombre()
+        self.values = self.estados_propios()
 
     def nombre(self):
         return self.dic["nombre"]
@@ -26,9 +28,17 @@ class Nodo:
                     if set(combinacion["heredados"]) == set(ests_heredado):
                         return combinacion["probabilidad"]
         return -1
-
-
     
+    def combinaciones(self):
+        
+        
+
+    def to_tabla(self):
+        tabla = {}
+
+        est_propios = self.estados_propios()
+        est_heredados = self.estados_heredados()
+
 
 class Grafo:
     def __init__(self, matriz_ad, nodos):
