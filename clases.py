@@ -89,17 +89,28 @@ class Grafo:
     
     def calcular_proba(self, principales, procesada):
         probabilidad = 1.0
+        print("La procesada", procesada)
         # Itero por cada una de las palabras de procesada
         for i in range(len(procesada)):
             #En cada iteracion busca si tiene papas
-            papas = self.buscar_papas(principales[procesada[i]])
-            
+            papas_raw = self.buscar_papas(principales[procesada[i]])
+            papas = []
+            # Los papas raw son solo los índices del arreglo de los papás
+            #Entonces que obtener los nombres de esos papás para luego buscar
+            for j in range(len(papas_raw)):
+                papas.append(self.nodos[papas_raw[j]].name)
+
+            print(papas)
+            inverted_principales = {value: key for key, value in principales.items()}
+            print("PRINCIPALES INVERTIDO: ", inverted_principales)
             if(len(papas) == 0):
                 for j in range(len(self.nodos)):
                      #Si no tiene entonces solo busco el valor de la cadena
                     # en su tabla
-                    if(self.nodos[j].name == procesada[i]):
-                        probabilidad = self.nodos[j].tabla[procesada[i]]*probabilidad
+                    if(self.nodos[j].name == principales[procesada[i]]):
+                        print("TAMPOCOOOOOOOOOOOOOOOOOOOOOOOO")
+                        print(self.nodos[j].tabla)
+                        probabilidad = self.nodos[j].tabla[(procesada[i],)]*probabilidad
                         
                 # Si tiene busco el valor de la cadena del papa en
                 # principales y hago un append a los dados creo una
@@ -110,17 +121,24 @@ class Grafo:
                 converted_tuple = ast.literal_eval(string_tuple)
                 # consigo los strings the los papas
                 # itero sobre esos strings para generar la tupla de strings
-                elemento0 = papas[0]
+                elemento0 = inverted_principales[papas[0]]
                 tupla_updated = converted_tuple + (elemento0,)
                 for j in range(1, len(papas)):
-                    tupla_updated = tupla_updated + (papas[i],)
+                    print(inverted_principales[papas[j]])
+                    tupla_updated = tupla_updated + (inverted_principales[papas[j]],)
                 print(tupla_updated)
-                
+
+
                 #cuando ya tengo todos los string en la tupla, la convierto y accedo
-                
-                
-                
                 # Busco la probabilidad con la tupla y multiplico
+                for j in range(len(self.nodos)):
+                    #print("AAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                    if(self.nodos[j].name == principales[procesada[i]]): 
+                        print(self.nodos[j].tabla)
+                        probabilidad = self.nodos[j].tabla[tupla_updated]*probabilidad
+                
+                print("LA SEÑORA PROBABILIDAD:", probabilidad )
+                
                 
                 #falta capturar excepción de que los papas dan negatio
                         
