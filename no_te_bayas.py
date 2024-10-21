@@ -19,12 +19,16 @@ def main():
 
     matriz_ad = func.leer_json("matriz.json")
 
-    print(matriz_ad)
+#    print(matriz_ad)
     graph = clases.Grafo(matriz_ad, nodos)
-    lista_indices = graph.buscar_papas("train")
-    print(lista_indices)
-
-
+#    lista_indices = graph.buscar_papas("train")
+#    print(lista_indices)
+#    limpia = graph.limpiar_cadena('P(light^delayed^miss)')
+#    principales = graph.variables_principales(limpia)
+ #   print(principales)
+    print(graph.buscar_papas("train"))
+    graph.principal('P(light^delayed^miss)')
+ 
     dic_rain = {
         ("none"): 0.7,
         ("light"): 0.2,
