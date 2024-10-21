@@ -35,11 +35,10 @@ class Nodo:
     def combinaciones(self):
         tabla = {}
         for estado in self.dic["contenido"]["estados"]:
-            est = [estado["estado"]]
             for combinacion in estado["combinaciones"]:
+                est = [estado["estado"]]
                 for heredado in combinacion["heredados"]:
                     est.append(heredado)
-                
                 linea = tuple(est), combinacion["probabilidad"]
                 tabla[linea[0]] = linea[1]
         return tabla
