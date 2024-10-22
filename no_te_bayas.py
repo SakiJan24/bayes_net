@@ -13,9 +13,9 @@ def main():
 
     for tabla in tablas:
         nodos.append(clases.Nodo(tabla))
-    for nodo in nodos:
-        print(nodo.nombre())
-        print(nodo.tabla)
+ #   for nodo in nodos:
+  #      print(nodo.nombre())
+   #     print(nodo.tabla)
 
     matriz_ad = func.leer_json("matriz.json")
 
@@ -27,7 +27,7 @@ def main():
 #    principales = graph.variables_principales(limpia)
  #   print(principales)
     print(graph.buscar_papas("train"))
-    graph.principal('P(light^delayed^miss)')
+    graph.principal('P(light^no^delayed^miss)')
  
     dic_rain = {
         ("none"): 0.7,

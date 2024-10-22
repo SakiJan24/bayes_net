@@ -121,12 +121,15 @@ class Grafo:
                 converted_tuple = ast.literal_eval(string_tuple)
                 # consigo los strings the los papas
                 # itero sobre esos strings para generar la tupla de strings
-                elemento0 = inverted_principales[papas[0]]
+                elemento0 = procesada[i]
+                #elemento0 = inverted_principales[papas[0]]
                 tupla_updated = converted_tuple + (elemento0,)
-                for j in range(1, len(papas)):
+                print("LO PAPURIKIS", papas)
+                for j in range(0, len(papas)):
+                    print("el del YES:", papas[j])
                     print(inverted_principales[papas[j]])
                     tupla_updated = tupla_updated + (inverted_principales[papas[j]],)
-                print(tupla_updated)
+                print("Tuplat updated:",tupla_updated)
 
 
                 #cuando ya tengo todos los string en la tupla, la convierto y accedo
