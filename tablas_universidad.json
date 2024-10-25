@@ -48,5 +48,34 @@
                 }
             ]
         }
+    },
+    {
+        "nombre" : "mark",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "m0",
+                    "combinaciones" : [
+                        {
+                            "heredados" : ["i0", "e0"],
+                            "probabilidad" : 0.6
+                        },
+                        {
+                            "heredados" : ["i0", "e1"],
+                            "probabilidad" : 0.9
+                        }
+                    ]
+                },
+                {
+                    "estado" : "i1",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.2
+                        }
+                    ]
+                }
+            ]
+        }
     }
 ]
