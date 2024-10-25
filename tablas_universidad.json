@@ -1,0 +1,52 @@
+[
+    {
+        "nombre" : "exam_level",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "e0",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.7
+                        }
+                    ]
+                },
+                {
+                    "estado" : "e1",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.3
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nombre" : "iq_level",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "i0",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.8
+                        }
+                    ]
+                },
+                {
+                    "estado" : "i1",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.2
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]
