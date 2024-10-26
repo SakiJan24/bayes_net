@@ -141,7 +141,7 @@ class Grafo:
                         probabilidad = self.nodos[j].tabla[tupla_updated]*probabilidad
                 
                 print("LA SEÑORA PROBABILIDAD:", probabilidad )
-                
+                print("repo, up and running")
                 
                 #falta capturar excepción de que los papas dan negatio
                         
