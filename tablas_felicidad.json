@@ -1,0 +1,521 @@
+[
+    {
+        "nombre" : "creative",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "creative",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.69932
+                        }
+                    ]
+                },
+                {
+                    "estado" : "not_creative",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.30068
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    },
+    {
+        "nombre" : "smart",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "smart",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.70472
+                        }
+                    ]
+                },
+                {
+                    "estado" : "not_smart",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.69932
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    },
+    {
+        "nombre" : "party",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "party",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.60216
+                        }
+                    ]
+                },
+                {
+                    "estado" : "not_party",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [],
+                            "probabilidad" : 0.39784
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    },
+    {
+        "nombre" : "project",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "project",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "creative",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.90484
+                        },
+                        {
+                            "heredados" : [
+                                "creative",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.40307
+                        },
+                        {
+                            "heredados" : [
+                                "not_creative",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.79326
+                        },
+                        {
+                            "heredados" : [
+                                "not_creative",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.10731
+                        }
+                    ]
+                },
+                {
+                    "estado" : "not_project",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "creative",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.09516
+                        },
+                        {
+                            "heredados" : [
+                                "creative",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.59693
+                        },
+                        {
+                            "heredados" : [
+                                "not_creative",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.20674
+                        },
+                        {
+                            "heredados" : [
+                                "not_creative",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.89269
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    },
+    {
+        "nombre" : "mac",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "mac",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "creative",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.68564
+                        },
+                        {
+                            "heredados" : [
+                                "creative",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.89635
+                        },
+                        {
+                            "heredados" : [
+                                "not_creative",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.41347
+                        },
+                        {
+                            "heredados" : [
+                                "not_creative",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.12329
+                        }
+                    ]
+                },
+                {
+                    "estado" : "not_mac",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "creative",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.31436
+                        },
+                        {
+                            "heredados" : [
+                                "creative",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.10365
+                        },
+                        {
+                            "heredados" : [
+                                "not_creative",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.58653
+                        },
+                        {
+                            "heredados" : [
+                                "not_creative",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.87671
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    },
+    {
+        "nombre" : "hw",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "hw",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "party",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.80252
+                        },
+                        {
+                            "heredados" : [
+                                "party",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.09447
+                        },
+                        {
+                            "heredados" : [
+                                "not_party",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.89790
+                        },
+                        {
+                            "heredados" : [
+                                "not_party",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.30556
+                        }
+                    ]
+                },
+                {
+                    "estado" : "not_hw",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "party",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.19748
+                        },
+                        {
+                            "heredados" : [
+                                "party",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.90553
+                        },
+                        {
+                            "heredados" : [
+                                "not_party",
+                                "smart"
+                            ],
+                            "probabilidad" : 0.1021
+                        },
+                        {
+                            "heredados" : [
+                                "not_party",
+                                "not_smart"
+                            ],
+                            "probabilidad" : 0.69444
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    },
+    {
+        "nombre" : "success",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "success",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "project",
+                                "hw"
+                            ],
+                            "probabilidad" : 0.89633
+                        },
+                        {
+                            "heredados" : [
+                                "project",
+                                "not_hw"
+                            ],
+                            "probabilidad" : 0.20737
+                        },
+                        {
+                            "heredados" : [
+                                "not_project",
+                                "hw"
+                            ],
+                            "probabilidad" : 0.30714
+                        },
+                        {
+                            "heredados" : [
+                                "not_project",
+                                "not_hw"
+                            ],
+                            "probabilidad" : 0.05066
+                        }
+                    ]
+                },
+                {
+                    "estado" : "not_success",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "project",
+                                "hw"
+                            ],
+                            "probabilidad" : 0.10367
+                        },
+                        {
+                            "heredados" : [
+                                "project",
+                                "not_hw"
+                            ],
+                            "probabilidad" : 0.79263
+                        },
+                        {
+                            "heredados" : [
+                                "not_project",
+                                "hw"
+                            ],
+                            "probabilidad" : 0.69286
+                        },
+                        {
+                            "heredados" : [
+                                "not_project",
+                                "not_hw"
+                            ],
+                            "probabilidad" : 0.94934
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nombre" : "happy",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "happy",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "success",
+                                "mac",
+                                "party"
+                            ],
+                            "probabilidad" : 0.95842
+                        },
+                        {
+                            "heredados" : [
+                                "success",
+                                "mac",
+                                "not_party"
+                            ],
+                            "probabilidad" : 0.35837
+                        },
+                        {
+                            "heredados" : [
+                                "success",
+                                "not_mac",
+                                "party"
+                            ],
+                            "probabilidad" : 0.72082
+                        },
+                        {
+                            "heredados" : [
+                                "success",
+                                "not_mac",
+                                "not_party"
+                            ],
+                            "probabilidad" : 0.30769
+                        },
+                        {
+                            "heredados" : [
+                                "not_success",
+                                "mac",
+                                "party"
+                            ],
+                            "probabilidad" : 0.49234
+                        },
+                        {
+                            "heredados" : [
+                                "not_success",
+                                "mac",
+                                "not_party"
+                            ],
+                            "probabilidad" : 0.20619
+                        },
+                        {
+                            "heredados" : [
+                                "not_success",
+                                "not_mac",
+                                "party"
+                            ],
+                            "probabilidad" : 0.42043
+                        },
+                        {
+                            "heredados" : [
+                                "not_success",
+                                "not_mac",
+                                "not_party"
+                            ],
+                            "probabilidad" : 0.09646
+                        }
+                    ]
+                },
+                {
+                    "estado" : "not_happy",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "success",
+                                "mac",
+                                "party"
+                            ],
+                            "probabilidad" : 0.04158
+                        },
+                        {
+                            "heredados" : [
+                                "success",
+                                "mac",
+                                "not_party"
+                            ],
+                            "probabilidad" : 0.64163
+                        },
+                        {
+                            "heredados" : [
+                                "success",
+                                "not_mac",
+                                "party"
+                            ],
+                            "probabilidad" : 0.27918
+                        },
+                        {
+                            "heredados" : [
+                                "success",
+                                "not_mac",
+                                "not_party"
+                            ],
+                            "probabilidad" : 0.69231
+                        },
+                        {
+                            "heredados" : [
+                                "not_success",
+                                "mac",
+                                "party"
+                            ],
+                            "probabilidad" : 0.50766
+                        },
+                        {
+                            "heredados" : [
+                                "not_success",
+                                "mac",
+                                "not_party"
+                            ],
+                            "probabilidad" : 0.79381
+                        },
+                        {
+                            "heredados" : [
+                                "not_success",
+                                "not_mac",
+                                "party"
+                            ],
+                            "probabilidad" : 0.57957
+                        },
+                        {
+                            "heredados" : [
+                                "not_success",
+                                "not_mac",
+                                "not_party"
+                            ],
+                            "probabilidad" : 0.90354
+                        }
+                    ]
+                }
+                
+            ]
+        }
+    }    
+]
