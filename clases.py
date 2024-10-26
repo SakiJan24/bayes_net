@@ -74,7 +74,7 @@ class Grafo:
         return el_split
     
     def variables_principales(self, procesada):
-        print("mahalo")
+      
         variables_principales = {}
         if(len(procesada) > len(self.nodos)):
             print("se van a procesar mas cosas de los nodos que se tienen")
@@ -87,6 +87,27 @@ class Grafo:
                 
         return variables_principales
     
+    def ocultas_procesadas(self, procesada):
+        print("yuju")
+
+        variables_principales = []
+        if(len(procesada) > len(self.nodos)):
+            print("se van a procesar mas cosas de los nodos que se tienen")
+        # busco a que pertence cada cosa
+        for i in range(len(procesada)):
+            for j in range(len(self.nodos)):
+                #voy a dejar esto duplicado para despues revisarlo
+                # es decir {Appointment:Apointment} puede ocurrir
+                if(self.nodos[j].name == procesada[i]):
+                      variables_principales[procesada[i]] = procesada[i]
+
+                else:
+                    for k in range (len(self.nodos[j].values)):
+                        if(self.nodos[j].values[k] == procesada[i] ):
+                            variables_principales[procesada[i]] = self.nodos[j].name
+                    
+        return variables_principales
+        
     def calcular_proba(self, principales, procesada):
         probabilidad = 1.0
         print("La procesada", procesada)
@@ -141,15 +162,9 @@ class Grafo:
                         probabilidad = self.nodos[j].tabla[tupla_updated]*probabilidad
                 
                 print("LA SEÑORA PROBABILIDAD:", probabilidad )
-                print("repo, up and running")
                 
                 #falta capturar excepción de que los papas dan negatio
-                        
-                
-                
-               
 
-                
                 # con la supertupla busco en el nodo y saco la probabilidad
                 # para multiplicar por probabilidads
         
@@ -160,10 +175,26 @@ class Grafo:
     def principal(self, cadena):
         #Leer cadena
         procesada = self.limpiar_cadena(cadena)
-        #Definir variables principales
-        principales = self.variables_principales(procesada)
-        #Calculo la probabilidad de cada una
-        probabilidad = self.calcular_proba(principales, procesada)
 
+        # Aqui bifurca
+        print("La cadena tiene variables ocultas [Y/n]")
+        ocultas = input("$")
+
+        if ocultas.lower() == 'n':
+            #Definir variables principales
+            principales = self.variables_principales(procesada)
+            #Calculo la probabilidad de cada una
+            probabilidad = self.calcular_proba(principales, procesada)
+
+        elif ocultas.lower() == "y": 
+            procesada_ocultas = [] # aqui debe ir la funcion que calcula las n cadenas
+            # en una matriz de strings que tiene los valores de las faltantes
+            probabilidades = 0
+            for i in range(len(procesada_ocultas)):
+                print("ejecuto principales")
+                print("ejecuto probabilidad")
+        
+        else:
+            print("Ingrese un valor valido")
         #busco los papas conforme a la variables principales
         print("esta es la funcion principal")
