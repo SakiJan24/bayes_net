@@ -57,21 +57,147 @@
                     "estado" : "m0",
                     "combinaciones" : [
                         {
-                            "heredados" : ["i0", "e0"],
+                            "heredados" : [
+                                "i0",
+                                "e0"
+                            ],
                             "probabilidad" : 0.6
                         },
                         {
-                            "heredados" : ["i0", "e1"],
+                            "heredados" : [
+                                "i0",
+                                "e1"
+                            ],
+                            "probabilidad" : 0.9
+                        },
+                        {
+                            "heredados" : [
+                                "i1",
+                                "e0"
+                            ],
+                            "probabilidad" : 0.5
+                        },
+                        {
+                            "heredados" : [
+                                "i1",
+                                "e1"
+                            ],
+                            "probabilidad" : 0.8
+                        }
+                    ]
+                },
+                {
+                    "estado" : "m1",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "i0",
+                                "e0"
+                            ],
+                            "probabilidad" : 0.4
+                        },
+                        {
+                            "heredados" : [
+                                "i0",
+                                "e1"
+                            ],
+                            "probabilidad" : 0.1
+                        },
+                        {
+                            "heredados" : [
+                                "i1",
+                                "e0"
+                            ],
+                            "probabilidad" : 0.5
+                        },
+                        {
+                            "heredados" : [
+                                "i1",
+                                "e1"
+                            ],
+                            "probabilidad" : 0.2
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nombre" : "admission",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "a0",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "m0"
+                            ],
+                            "probabilidad" : 0.6
+                        },
+                        {
+                            "heredados" : [
+                                "m1"
+                            ],
                             "probabilidad" : 0.9
                         }
                     ]
                 },
                 {
-                    "estado" : "i1",
+                    "estado" : "a1",
                     "combinaciones" : [
                         {
-                            "heredados" : [],
-                            "probabilidad" : 0.2
+                            "heredados" : [
+                                "m0"
+                            ],
+                            "probabilidad" : 0.4
+                        },
+                        {
+                            "heredados" : [
+                                "m1"
+                            ],
+                            "probabilidad" : 0.1
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nombre" : "apti.score",
+        "contenido" : {
+            "estados" : [
+                {
+                    "estado" : "s0",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "i0"
+                            ],
+                            "probabilidad" : 0.75
+                        },
+                        {
+                            "heredados" : [
+                                "i1"
+                            ],
+                            "probabilidad" : 0.4
+                        }
+                    ]
+                },
+                {
+                    "estado" : "s1",
+                    "combinaciones" : [
+                        {
+                            "heredados" : [
+                                "i0"
+                            ],
+                            "probabilidad" : 0.25
+                        },
+                        {
+                            "heredados" : [
+                                "i1"
+                            ],
+                            "probabilidad" : 0.6
                         }
                     ]
                 }
