@@ -164,7 +164,7 @@
         }
     },
     {
-        "nombre" : "apti.score",
+        "nombre" : "apti._score",
         "contenido" : {
             "estados" : [
                 {
