@@ -170,11 +170,13 @@ class Grafo:
         posibles_combinaciones = [list(p) for p in posibles_combinaciones]
         print(posibles_combinaciones)
         dos_probas_final = []
+
+
         for i in range(len(posibles_combinaciones)):
             new_inner_array = []
             for j in range(len(dos_probas[i])):
-                new_inner = dos_probas[i][j].copy()  # Make a copy of the inner array
-                new_inner[0] = posibles_combinaciones[i][j]  # Replace the first element
+                new_inner = dos_probas[i][j].copy()  
+                new_inner[0] = posibles_combinaciones[i][j]  
                 new_inner_array.append(new_inner)
             dos_probas_final.append(new_inner_array)
         # Luego, itero para aniadir el valor que le corresponde conforme a los valores encontrados
