@@ -226,6 +226,9 @@ class Grafo:
             # en una matriz de strings que tiene los valores de las faltantes
             procesada_con_y = self.encontrar_y(procesada)
             print("procesada con Y",procesada_con_y)
+            # Ya con la procesada en Y lo que hago es partir esto en n arreglos para los dos casos
+            # Hago un ciclo que calcula las probabilidades dado un valor, en la que no es Y pero es faltante
+            # Añado esa probabilidad en dónde hay un diccionario clon una tupla para el caso específico
             probabilidades = 0
             for i in range(len(procesada_con_y)):
                 print("ejecuto principales")
