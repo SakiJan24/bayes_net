@@ -27,7 +27,7 @@ def main():
 #    principales = graph.variables_principales(limpia)
  #   print(principales)
     print(graph.buscar_papas("train"))
-    graph.principal('P(light^no^delayed^miss)')
+    graph.principal('P(appointment^light^no)')
  
     dic_rain = {
         ("none"): 0.7,

@@ -191,7 +191,7 @@
         }
     },
     {
-        "nombre" : "apoinment",
+        "nombre" : "appointment",
         "contenido" : {
             "estados" : [
                 {

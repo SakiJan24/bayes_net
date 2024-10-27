@@ -78,7 +78,7 @@ class Grafo:
         variables_principales = {}
         if(len(procesada) > len(self.nodos)):
             print("se van a procesar mas cosas de los nodos que se tienen")
-        # busco a que pertence cada cosa
+        # busco a que pertence cada cosaenco
         for i in range(len(procesada)):
             for j in range(len(self.nodos)):
                 for k in range (len(self.nodos[j].values)):
@@ -87,10 +87,20 @@ class Grafo:
                 
         return variables_principales
     
-    def ocultas_procesadas(self, procesada):
-        print("yuju")
+    def get_names(self):
+        names = []
+        for i in range(len(self.nodos)):
+            names.append(self.nodos[i].name)
+        return names
 
-        variables_principales = []
+
+
+    def encontrar_y(self, procesada):
+        print("yuju")
+        las_procesadas = []
+        las_procesadas.append(procesada)
+        print("LA PROCESADA:", procesada)
+        variables_principales = {}
         if(len(procesada) > len(self.nodos)):
             print("se van a procesar mas cosas de los nodos que se tienen")
         # busco a que pertence cada cosa
@@ -98,15 +108,40 @@ class Grafo:
             for j in range(len(self.nodos)):
                 #voy a dejar esto duplicado para despues revisarlo
                 # es decir {Appointment:Apointment} puede ocurrir
+              #  print('NODOS', self.nodos[j].name, "PROCESADA", procesada[i])
                 if(self.nodos[j].name == procesada[i]):
+                      print('ENTRAA', procesada[i])
                       variables_principales[procesada[i]] = procesada[i]
 
                 else:
                     for k in range (len(self.nodos[j].values)):
                         if(self.nodos[j].values[k] == procesada[i] ):
                             variables_principales[procesada[i]] = self.nodos[j].name
-                    
-        return variables_principales
+        
+        print("VARIABLES PRINCIPALES:", variables_principales)
+        print("LEN_PRINCIPALES", len(variables_principales), "LEN_PROCESADA", len(procesada))
+        names = self.get_names()
+        print('PRINT DE NAMES PREVIO', names)
+        if(len(names) > len(procesada)):
+            for i in range(len(names)):
+                if names[i] in variables_principales.values():
+                    names[i] = "tachado"
+        print('PRINT DE NAMES', names)
+        
+        for i in range(len(names)):
+            print("ITERA NAMES")
+            for j in range(len(self.nodos)):
+                if self.nodos[j].name == names[i]:
+                    for k in range(len(self.nodos[j].values)):
+                        print("NODOS VALUES",self.nodos[j].values)
+                        #falta poner el if acá
+                        # me saco una copia de values y le hago el tachao
+                        copia_procesada = procesada.copy()
+                        copia_procesada.append(self.nodos[j].values[k])
+                        las_procesadas.append(copia_procesada)
+        del las_procesadas[0]
+        
+        return las_procesadas
         
     def calcular_proba(self, principales, procesada):
         probabilidad = 1.0
@@ -187,10 +222,12 @@ class Grafo:
             probabilidad = self.calcular_proba(principales, procesada)
 
         elif ocultas.lower() == "y": 
-            procesada_ocultas = [] # aqui debe ir la funcion que calcula las n cadenas
+            procesada_con_y = [] # aqui debe ir la funcion que calcula las n cadenas
             # en una matriz de strings que tiene los valores de las faltantes
+            procesada_con_y = self.encontrar_y(procesada)
+            print("procesada con Y",procesada_con_y)
             probabilidades = 0
-            for i in range(len(procesada_ocultas)):
+            for i in range(len(procesada_con_y)):
                 print("ejecuto principales")
                 print("ejecuto probabilidad")
         
