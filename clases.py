@@ -1,5 +1,5 @@
 import ast
-
+from itertools import permutations
 class Nodo: 
     def __init__(self, dic):
         self.dic = dic
@@ -163,14 +163,24 @@ class Grafo:
             #el_y[i][0] = self.nodos[index1].values[i]
             #print("EL_Y EN I 0:",el_y )
             dos_probas.append(el_y)
-        print(dos_probas[0])
-        print(dos_probas[1])
-             
-            
-        
+    
+        print(dos_probas)
+        # Necesito obtener las multiples formas en que podría insertarse X
+        posibles_combinaciones = list(permutations(self.nodos[index1].values))
+        posibles_combinaciones = [list(p) for p in posibles_combinaciones]
+        print(posibles_combinaciones)
+        dos_probas_final = []
+        for i in range(len(posibles_combinaciones)):
+            new_inner_array = []
+            for j in range(len(dos_probas[i])):
+                new_inner = dos_probas[i][j].copy()  # Make a copy of the inner array
+                new_inner[0] = posibles_combinaciones[i][j]  # Replace the first element
+                new_inner_array.append(new_inner)
+            dos_probas_final.append(new_inner_array)
         # Luego, itero para aniadir el valor que le corresponde conforme a los valores encontrados
         # en values
         # Con eso aniadido, lo retorno 
+        print('DOS PROBAS FINAL',dos_probas_final)
         
         
     def calcular_proba(self, principales, procesada):
