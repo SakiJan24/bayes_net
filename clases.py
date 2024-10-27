@@ -141,7 +141,37 @@ class Grafo:
                         las_procesadas.append(copia_procesada)
         del las_procesadas[0]
         
-        return las_procesadas
+        return las_procesadas, variables_principales
+    
+    def encontrar_x(self, procesa_con_y, principales_especial):
+        print("vamos muchachos")
+        # Primero, reviso los posibles valores de X
+        index1 = -1
+        print("PRINCIPALES ESPECIAL", principales_especial)
+        for i in range(len(self.nodos)):
+            if index1 == -1:
+                if self.nodos[i].name == procesa_con_y[0]:
+                    index1 = i
+            else:
+                break
+        print("EL INDEX:", index1)
+        dos_probas = []
+        # Con esa cantidad hago un ciclo que va a duplicar los arreglos que venga
+        for i in range(len(self.nodos[index1].values)):
+            el_y = procesa_con_y.copy()
+            #print("PROCESA_EN_Y",procesa_con_y )
+            #el_y[i][0] = self.nodos[index1].values[i]
+            #print("EL_Y EN I 0:",el_y )
+            dos_probas.append(el_y)
+        print(dos_probas[0])
+        print(dos_probas[1])
+             
+            
+        
+        # Luego, itero para aniadir el valor que le corresponde conforme a los valores encontrados
+        # en values
+        # Con eso aniadido, lo retorno 
+        
         
     def calcular_proba(self, principales, procesada):
         probabilidad = 1.0
@@ -224,8 +254,9 @@ class Grafo:
         elif ocultas.lower() == "y": 
             procesada_con_y = [] # aqui debe ir la funcion que calcula las n cadenas
             # en una matriz de strings que tiene los valores de las faltantes
-            procesada_con_y = self.encontrar_y(procesada)
-            print("procesada con Y",procesada_con_y)
+            procesada_con_y, principales_especial = self.encontrar_y(procesada)
+            print("procesada con Y",procesada_con_y, principales_especial)
+            procesada_con_y_x = self.encontrar_x(procesada_con_y, principales_especial)
             # Ya con la procesada en Y lo que hago es partir esto en n arreglos para los dos casos
             # Hago un ciclo que calcula las probabilidades dado un valor, en la que no es Y pero es faltante
             # Añado esa probabilidad en dónde hay un diccionario clon una tupla para el caso específico
