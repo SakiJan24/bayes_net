@@ -7,7 +7,7 @@ import pruebas as pr
     
 def main():
 
-    tablas = func.leer_json("tablas.json")
+    tablas = func.leer_json("tablas_universidad.json")
 
     nodos: list[clases.Nodo] = []
 
@@ -17,7 +17,7 @@ def main():
   #      print(nodo.nombre())
    #     print(nodo.tabla)
 
-    matriz_ad = func.leer_json("matriz.json")
+    matriz_ad = func.leer_json("matriz_universidad.json")
 
 #    print(matriz_ad)
     graph = clases.Grafo(matriz_ad, nodos)
@@ -27,7 +27,7 @@ def main():
 #    principales = graph.variables_principales(limpia)
  #   print(principales)
     print(graph.buscar_papas("train"))
-    graph.principal('P(appointment^light^no)')
+    graph.principal('P(a0^e0)')
  
     dic_rain = {
         ("none"): 0.7,
