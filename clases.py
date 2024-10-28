@@ -52,7 +52,6 @@ class Grafo:
         self.nodos = nodos
     
     def buscar_papas(self, name):
-        print("entra")
         lista_indices = []
         for i in range(len(self.nodos)):
             if(self.nodos[i].nombre() == name):
@@ -96,10 +95,9 @@ class Grafo:
 
 
     def encontrar_y(self, procesada):
-        print("yuju")
         las_procesadas = []
         las_procesadas.append(procesada)
-        print("LA PROCESADA:", procesada)
+        print("Resultado procesamiento cadena:", procesada)
         variables_principales = {}
         if(len(procesada) > len(self.nodos)):
             print("se van a procesar mas cosas de los nodos que se tienen")
@@ -110,7 +108,7 @@ class Grafo:
                 # es decir {Appointment:Apointment} puede ocurrir
               #  print('NODOS', self.nodos[j].name, "PROCESADA", procesada[i])
                 if(self.nodos[j].name == procesada[i]):
-                      print('ENTRAA', procesada[i])
+                      #print('ENTRAA', procesada[i])
                       variables_principales[procesada[i]] = procesada[i]
 
                 else:
@@ -118,22 +116,19 @@ class Grafo:
                         if(self.nodos[j].values[k] == procesada[i] ):
                             variables_principales[procesada[i]] = self.nodos[j].name
         
-        print("VARIABLES PRINCIPALES:", variables_principales)
-        print("LEN_PRINCIPALES", len(variables_principales), "LEN_PROCESADA", len(procesada))
+        print("El diccionario de variables principales es:", variables_principales)
         names = self.get_names()
-        print('PRINT DE NAMES PREVIO', names)
+        print('Nombres previos con los que se encuentra', names)
         if(len(names) > len(procesada)):
             for i in range(len(names)):
                 if names[i] in variables_principales.values():
                     names[i] = "tachado"
-        print('PRINT DE NAMES', names)
+        print('Literalmente se tachan los nombres que ya tienen variable y queda: ', names)
         
         for i in range(len(names)):
-            print("ITERA NAMES")
             for j in range(len(self.nodos)):
                 if self.nodos[j].name == names[i]:
                     for k in range(len(self.nodos[j].values)):
-                        print("NODOS VALUES",self.nodos[j].values)
                         #falta poner el if acá
                         # me saco una copia de values y le hago el tachao
                         copia_procesada = procesada.copy()
@@ -144,17 +139,17 @@ class Grafo:
         return las_procesadas, variables_principales
     
     def encontrar_x(self, procesa_con_y, principales_especial):
-        print("vamos muchachos")
+       # print("vamos muchachos")
         # Primero, reviso los posibles valores de X
         index1 = -1
-        print("PRINCIPALES ESPECIAL", principales_especial)
+        print("Variables Principales Especial para los faltantes", principales_especial)
         for i in range(len(self.nodos)):
             if index1 == -1:
                 if self.nodos[i].name == procesa_con_y[0]:
                     index1 = i
             else:
                 break
-        print("EL INDEX:", index1)
+        #print("EL INDEX:", index1)
         dos_probas = []
         # Con esa cantidad hago un ciclo que va a duplicar los arreglos que venga
         for i in range(len(self.nodos[index1].values)):
@@ -164,11 +159,11 @@ class Grafo:
             #print("EL_Y EN I 0:",el_y )
             dos_probas.append(el_y)
     
-        print(dos_probas)
+        #print(dos_probas)
         # Necesito obtener las multiples formas en que podría insertarse X
         posibles_combinaciones = list(permutations(self.nodos[index1].values))
         posibles_combinaciones = [list(p) for p in posibles_combinaciones]
-        print(posibles_combinaciones)
+        #clearprint(posibles_combinaciones)
         dos_probas_final = []
 
 
@@ -182,15 +177,15 @@ class Grafo:
         # Luego, itero para aniadir el valor que le corresponde conforme a los valores encontrados
         # en values
         # Con eso aniadido, lo retorno 
-        print('DOS PROBAS FINAL', dos_probas_final)
+        #print('DOS PROBAS FINAL', dos_probas_final)
 
         
         dos_probas_return = [sublist for inner_list in dos_probas_final for sublist in inner_list]
-        print("DOS PROBAS FINNN", dos_probas_return)
+        #print("DOS PROBAS FINNN", dos_probas_return)
 
         # Sort the flattened list
         dos_probas_sorted = sorted(dos_probas_return)
-        print("DOS PROBAS FINNN", dos_probas_sorted)
+        #print("DOS PROBAS FINNN", dos_probas_sorted)
 
         
         copia_values = self.nodos[index1].values.copy()
@@ -203,7 +198,7 @@ class Grafo:
 
         # Convert the split dictionary values to a list if needed
         dos_probas_sorted_split = list(el_split.values())
-        print("DOS PROBAS SORTED SPLIT", dos_probas_sorted_split)
+        print("Arreglo de probabilidades para sumar", dos_probas_sorted_split)
 
         return dos_probas_sorted_split  # or whatever you need to return
 
@@ -211,7 +206,7 @@ class Grafo:
         
     def calcular_proba(self, principales, procesada):
         probabilidad = 1.0
-        print("La procesada", procesada)
+        print("La procesada para calcular probabilidad es", procesada)
         # Itero por cada una de las palabras de procesada
         for i in range(len(procesada)):
             #En cada iteracion busca si tiene papas
@@ -222,23 +217,23 @@ class Grafo:
             for j in range(len(papas_raw)):
                 papas.append(self.nodos[papas_raw[j]].name)
 
-            print(papas)
+            #print("Papas el nodo",papas)
             inverted_principales = {value: key for key, value in principales.items()}
-            print("PRINCIPALES INVERTIDO: ", inverted_principales)
+            #print("Variables principales Invertido: ", inverted_principales)
             if(len(papas) == 0):
                 for j in range(len(self.nodos)):
                      #Si no tiene entonces solo busco el valor de la cadena
                     # en su tabla
                     if(self.nodos[j].name == principales[procesada[i]]):
-                        print("TAMPOCOOOOOOOOOOOOOOOOOOOOOOOO")
-                        print(self.nodos[j].tabla)
+                        #print("TAMPOCOOOOOOOOOOOOOOOOOOOOOOOO")
+                        #print(self.nodos[j].tabla)
                         probabilidad = self.nodos[j].tabla[(procesada[i],)]*probabilidad
                         
                 # Si tiene busco el valor de la cadena del papa en
                 # principales y hago un append a los dados creo una
                 # super tupla
             else:
-                print("prin prin")
+                #print("prin prin")
                 string_tuple = "()"
                 converted_tuple = ast.literal_eval(string_tuple)
                 # consigo los strings the los papas
@@ -246,12 +241,12 @@ class Grafo:
                 elemento0 = procesada[i]
                 #elemento0 = inverted_principales[papas[0]]
                 tupla_updated = converted_tuple + (elemento0,)
-                print("LO PAPURIKIS", papas)
+                #print("LO PAPURIKIS", papas)
                 for j in range(0, len(papas)):
-                    print("el del YES:", papas[j])
-                    print(inverted_principales[papas[j]])
+                    #print("el del YES:", papas[j])
+                    #print(inverted_principales[papas[j]])
                     tupla_updated = tupla_updated + (inverted_principales[papas[j]],)
-                print("Tuplat updated:",tupla_updated)
+                #print("Tupla para la búsqueda en tablacl:",tupla_updated)
 
 
                 #cuando ya tengo todos los string en la tupla, la convierto y accedo
@@ -259,10 +254,10 @@ class Grafo:
                 for j in range(len(self.nodos)):
                     #print("AAAAAAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
                     if(self.nodos[j].name == principales[procesada[i]]): 
-                        print(self.nodos[j].tabla)
+                #        print(self.nodos[j].tabla)
                         probabilidad = self.nodos[j].tabla[tupla_updated]*probabilidad
                 
-                print("LA SEÑORA PROBABILIDAD:", probabilidad )
+                #print("LA SEÑORA PROBABILIDAD:", probabilidad )
                 
                 #falta capturar excepción de que los papas dan negatio
 
@@ -291,7 +286,7 @@ class Grafo:
             procesada_con_y = [] # aqui debe ir la funcion que calcula las n cadenas
             # en una matriz de strings que tiene los valores de las faltantes
             procesada_con_y, principales_especial = self.encontrar_y(procesada)
-            print("procesada con Y",procesada_con_y, principales_especial)
+            #print("procesada con Y",procesada_con_y, principales_especial)
             procesada_con_y_x = self.encontrar_x(procesada_con_y, principales_especial)
             # Ya con la procesada en Y lo que hago es partir esto en n arreglos para los dos casos
             probabilidades = {}
