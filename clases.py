@@ -182,7 +182,31 @@ class Grafo:
         # Luego, itero para aniadir el valor que le corresponde conforme a los valores encontrados
         # en values
         # Con eso aniadido, lo retorno 
-        print('DOS PROBAS FINAL',dos_probas_final)
+        print('DOS PROBAS FINAL', dos_probas_final)
+
+        
+        dos_probas_return = [sublist for inner_list in dos_probas_final for sublist in inner_list]
+        print("DOS PROBAS FINNN", dos_probas_return)
+
+        # Sort the flattened list
+        dos_probas_sorted = sorted(dos_probas_return)
+        print("DOS PROBAS FINNN", dos_probas_sorted)
+
+        
+        copia_values = self.nodos[index1].values.copy()
+        el_split = {value: [] for value in copia_values}
+
+        
+        for proba in dos_probas_sorted:
+            if proba[0] in el_split:
+                el_split[proba[0]].append(proba)
+
+        # Convert the split dictionary values to a list if needed
+        dos_probas_sorted_split = list(el_split.values())
+        print("DOS PROBAS SORTED SPLIT", dos_probas_sorted_split)
+
+        return dos_probas_sorted_split  # or whatever you need to return
+
         
         
     def calcular_proba(self, principales, procesada):
@@ -270,9 +294,18 @@ class Grafo:
             print("procesada con Y",procesada_con_y, principales_especial)
             procesada_con_y_x = self.encontrar_x(procesada_con_y, principales_especial)
             # Ya con la procesada en Y lo que hago es partir esto en n arreglos para los dos casos
+            probabilidades = {}
+            for i in range(len(procesada_con_y_x)):
+                probabilidad_i = 0.0
+                for j in range(len(procesada_con_y_x[i])):
+                    principales = self.variables_principales(procesada_con_y_x[i][j])
+                    probabilidad_i = probabilidad_i + self.calcular_proba(principales,procesada_con_y_x[i][j])
+                probabilidades[procesada_con_y_x[i][j][0]] = probabilidad_i
+            
+            print("Probabilidades",probabilidades)
             # Hago un ciclo que calcula las probabilidades dado un valor, en la que no es Y pero es faltante
             # Añado esa probabilidad en dónde hay un diccionario clon una tupla para el caso específico
-            probabilidades = 0
+            
             for i in range(len(procesada_con_y)):
                 print("ejecuto principales")
                 print("ejecuto probabilidad")
