@@ -301,9 +301,9 @@ class Grafo:
             # Hago un ciclo que calcula las probabilidades dado un valor, en la que no es Y pero es faltante
             # Añado esa probabilidad en dónde hay un diccionario clon una tupla para el caso específico
             
-            for i in range(len(procesada_con_y)):
-                print("ejecuto principales")
-                print("ejecuto probabilidad")
+            #for i in range(len(procesada_con_y)):
+            #    print("ejecuto principales")
+            #    print("ejecuto probabilidad")
         
         else:
             print("Ingrese un valor valido")

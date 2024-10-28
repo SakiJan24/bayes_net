@@ -26,7 +26,7 @@ def main():
 #    limpia = graph.limpiar_cadena('P(light^delayed^miss)')
 #    principales = graph.variables_principales(limpia)
  #   print(principales)
-    print(graph.buscar_papas("train"))
+    #print(graph.buscar_papas("train"))
     graph.principal('P(a0^e0)')
  
     dic_rain = {
